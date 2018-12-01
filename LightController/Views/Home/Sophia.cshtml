@@ -1,0 +1,31 @@
+﻿@{
+    bool on = ViewBag.on ?? false;
+}
+
+<div class="btn-group" role="group" aria-label="Strøm">
+    <button id="on"  value="@(ViewBag.ids)" type="button" data-toggle="button" class="btn btn-lg btn-danger  @(on ? "active" : "")" aria-pressed="@(!on)">Av</button>
+    <button id="off" value="@(ViewBag.ids)" type="button" data-toggle="button" class="btn btn-lg btn-success @(on ? "" : "active")" aria-pressed="@(on)">På</button>
+</div>
+
+<hr />
+
+<div class="btn-group" role="group" aria-label="Farge">
+    <button type="button" data-toggle="button" class="btn btn-lg btn-light">Hvit</button>
+    <button type="button" data-toggle="button" class="btn btn-lg btn-warning">Gul</button>
+</div>
+
+<hr />
+
+<div>
+    <h3>Styrke</h3>
+    <input type="text"
+           name="level"
+           class="sliderItem"
+           data-provide="slider"
+           xdata-slider-ticks="[1, 2, 3]"
+           data-slider-min="0"
+           data-slider-max="100"
+           data-slider-step="10"
+           data-slider-value="@ViewData["initialLevel"]"
+           data-slider-tooltip="hide">
+</div>
